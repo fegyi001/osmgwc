@@ -9,7 +9,7 @@ If you follow the steps below, you will download OSM data, create an empty datab
 ## Prerequisites
 1. PostgreSQL with PostGIS
 
-    In this tutorial I used PostgreSQL v.9.6.1 with PostGIS v.2.2.3 
+    In this tutorial I used PostgreSQL v.9.6.1 with PostGIS v.2.3.0
 2. GeoServer with the CSS plugin
 
     In this tutorial I used GeoServer v.2.10.0
