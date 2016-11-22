@@ -17,5 +17,8 @@ If you follow the steps below, you will download OSM data, create an empty datab
     
     https://ci.appveyor.com/project/openstreetmap/osm2pgsql/build/artifacts
 
+http://download.geofabrik.de/europe/hungary-latest.osm.bz2
+
+http://trac.osgeo.org/osgeo4w/
 
 ...TO BE CONTINUED!
