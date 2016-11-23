@@ -1,7 +1,11 @@
 # osmgwc
+
 > A step-by-step tutorial to create a geowebcache layer from OSM data which will look just like Google Maps
 
+[![Join the chat at https://gitter.im/osmgwc/Lobby](https://badges.gitter.im/osmgwc/Lobby.svg)](https://gitter.im/osmgwc/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## What is osmgwc?
+
 With osmgwc you will be able to create a fast cached wms layer which will hopefully look like Google Maps. The main difference is that it will be based on the free and open source OpenStreetMap (OSM) data, stored in a PostGIS database and served with GeoServer. Another difference is that it will be stored in the spatial reference system (SRS) of your choice.
 
 If you follow the steps below, you will download OSM data, create an empty database, populate it with geodata in the desired SRS, then split the data into different tables (settlements, rivers etc.), add them as layers in GeoServer, style them with CSS styles, create a combined layergroup, define a grid for your SRS, then finally publish a cached layer.
@@ -12,11 +16,11 @@ In this tutorial the data for Hungary will be used. The size of this country's O
 
 * PostgreSQL with PostGIS: 
 
-    In this tutorial I used [PostgreSQL v.9.6.1 with PostGIS v.2.3.0](http://www.enterprisedb.com/products-services-training/pgdownload)
+    For this tutorial I used [PostgreSQL v.9.6.1 with PostGIS v.2.3.0](http://www.enterprisedb.com/products-services-training/pgdownload)
 
 * GeoServer with the CSS plugin: 
 
-    In this tutorial I used [GeoServer v.2.10.0](http://geoserver.org/release/2.10.0/). Download the CSS plugin from [here](https://sourceforge.net/projects/geoserver/files/GeoServer/2.10.0/extensions/geoserver-2.10.0-css-plugin.zip/download), then unzip it into geoserver's lib folder which can be found here: [GeoServer install dir]/webapps/geoserver/WEB-INF/lib, then restart GeoServer.
+    For this tutorial I used [GeoServer v.2.10.0](http://geoserver.org/release/2.10.0/). Download the CSS plugin from [here](https://sourceforge.net/projects/geoserver/files/GeoServer/2.10.0/extensions/geoserver-2.10.0-css-plugin.zip/download), then unzip it into GeoServer's lib folder which can be found here: [GeoServer install dir]/webapps/geoserver/WEB-INF/lib, then restart GeoServer.
 
 * osm2pgsql
 
@@ -36,7 +40,7 @@ The data is freely available on GEOFABRIK's [download site](http://download.geof
 
 ## Create a new PostGIS database
 
-Create a new database (in this tutorial this will be called 'osm', then run for the newly created database: 
+Create a new database (in this tutorial this will be called 'osm'), then run this for the newly created database:
 
 ```sql
 create extension postgis;
@@ -61,5 +65,7 @@ Parameters are:
 * cache-stratey and cache: if your machine is not very strong use these parameters, otherwise you can omit them
 
 This will take a while based on the size of your data and your machine's capabilities. For me it took around 10 minutes to process.
+
+If the command ran successfully, you will see the following new tables in the 'public' schema: planet_osm_line, planet_osm_nodes, planet_osm_point, planet_osm_polygon, planet_osm_rels, planet_osm_roads, planet_osm_ways. Make sure you have all of them!
 
 ...TO BE CONTINUED!
