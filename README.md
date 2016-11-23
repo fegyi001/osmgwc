@@ -68,6 +68,10 @@ This will take a while based on the size of your data and your machine's capabil
 
 If the command ran successfully, you will see the following new tables in the 'public' schema: planet_osm_line, planet_osm_nodes, planet_osm_point, planet_osm_polygon, planet_osm_rels, planet_osm_roads, planet_osm_ways. Make sure you have all of them!
 
+## Create some PostGIS tables
+
+Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (tables.sql). After running it, you will have a new schema called "osm" populated with 18 new tables.
+
 ## Create some GeoServer CSS styles
 
 In this step you will create styles by importing CSS files from this project's css folder. With these CSS files your map will look a lot like Google Maps.
