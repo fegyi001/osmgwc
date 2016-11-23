@@ -114,8 +114,22 @@ After you added all the 18 layers, click on "Generate Bounds", then on "Save".
 
 ## Preview the layer group
 
-Before creating a cached WMS service it would be nice to look what you've accomplished so far. Click on "Layer Preview" on the admin page, scroll down to the "osm_hungary" layer group and click on "OpenLayers". You will be navigated to a new page with a live WMS service of your layer group. You can zoom & pan the interactive map, and you should see that it is reasonably fast (at least compared to how many layers and styles the GeoServer has to synchronize). You should see that it is indeed looks a lot like Google Maps itself:
+Before creating a cached WMS service it would be nice to look what you've accomplished so far. Click on "Layer Preview" on the admin page, scroll down to the "osm_hungary" layer group and click on "OpenLayers". You will be navigated to a new page with a live WMS service of your layer group. You can zoom & pan the interactive map, and you should see that it is reasonably fast (at least compared to how many layers and styles the GeoServer has to synchronize not to mention the amount of data). You should see that it  indeed looks a lot like Google Maps itself:
 
 ![preview](img/preview.png)
+
+## Why cached?
+
+If you tried to preview the layer group as mentioned above you requested the GeoServer to do a lot of calculation each time you zoomed or panned the map. For one user this was relatively fast, but imagine a lot of users requesting the same layer group at the same time. After a while, GeoServer will not be able to serve the clients with an acceptable speed. However, if the server stores a generated tile for a given zoom level in an image file (jpg, png etc.), it does not have to render it again, but instead simply send that image back to the client. It saves a LOT of computation. Every major WMS tile servers (OpenStreetMap, Google, Bing etc.) use some caching method.
+
+## Create a Gridset for your SRS
+
+A Gridset is a collection of different zoom levels for a given spatial reference system with a tile size (256x256 pixels usually). However, if you create a cached WMS service with an SRS other than EPSG:4326 or EPSG:900913, you have to define your own gridset. Since the OSM data is now in EPSG:23700 you will define a gridset for EPSG:23700.
+
+To do that, click on "Gridsets" on the admin page, then on "Create a new gridset". Give it a name (e.g. EPSG:23700), at the "Coordinate Reference System" section click on "Find...", find the one with the code "23700" (description: HD72/EOV), click on the code. Then click on "Compute from maximum extent of CRS". Next you will add the above mentioned zoom levels. Click on "Scale denominators" at the "Tile Matrix Set" section, and click on "Add zoom level" 15 times. Enter a scale and a name for each level. At the end, your gridset should look like this:
+
+![gridset](img/gridset.png)
+
+After that, click on "Save". Your newly created gridset should be visible among the other gridsets.
 
 ...TO BE CONTINUED!
