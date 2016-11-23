@@ -74,6 +74,18 @@ Now you have a lot of uncategorized data in your database now. It would be great
 
 If you wish to use a different CRS (other than EPSG:23700) you manually have to change all occurences of "23700" to the desired EPSG code in the SQL file before execute it!
 
+If you wish to free up some space from the database you can delete the unnecessary tables from the public schema:
+
+```sql
+drop table planet_osm_line;
+drop table planet_osm_nodes;
+drop table planet_osm_point;
+drop table planet_osm_polygon;
+drop table planet_osm_rels;
+drop table planet_osm_roads;
+drop table planet_osm_ways;
+```
+
 ## Create some GeoServer CSS styles
 
 In this step you will create styles by importing CSS files from this project's css folder. With these CSS files your map will look a lot like Google Maps.
