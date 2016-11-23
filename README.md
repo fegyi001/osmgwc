@@ -106,11 +106,16 @@ At the end you will have 18 new layers, all set with a previously created GeoSer
 
 Most likely you wish to publish your cached WMS service as one single layer instead of a bunch of individual layers. With GeoServer you can create a layer group that combines individual layers with an appearance order. You can define which layers should be on top and which ones on bottom.
 
-Click on "Layer Groups" on the admin page, then "Add new layer group". Name your layer group e.g. osm_hungary. Next, add your layers individually by clicking on the "Add Layer..." button. The order of the layers is very important. This is how your layer order should look like:
+Click on "Layer Groups" on the admin page, then "Add new layer group". Name your layer group e.g. "osm_hungary". Next, add your layers individually by clicking on the "Add Layer..." button. The order of the layers is very important. This is how your layer order should look like:
 
 ![layergroup](img/layergroup.png)
 
 After you added all the 18 layers, click on "Generate Bounds", then on "Save".
 
+## Preview the layer group
+
+Before creating a cached WMS service it would be nice to look what you've accomplished so far. Click on "Layer Preview" on the admin page, scroll down to the "osm_hungary" layer group and click on "OpenLayers". You will be navigated to a new page with a live WMS service of your layer group. You can zoom & pan the interactive map, and you should see that it is reasonably fast (at least compared to how many layers and styles the GeoServer has to synchronize). You should see that it is indeed looks a lot like Google Maps itself:
+
+![preview](img/preview.png)
 
 ...TO BE CONTINUED!
