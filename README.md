@@ -1,6 +1,6 @@
 # osmgwc
 
-> A step-by-step tutorial to create a geowebcache layer from OSM data which will look just like Google Maps
+> A step-by-step tutorial to create a geowebcache layer from OSM data which will look a lot like Google Maps
 
 [![Join the chat at https://gitter.im/osmgwc/Lobby](https://badges.gitter.im/osmgwc/Lobby.svg)](https://gitter.im/osmgwc/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
