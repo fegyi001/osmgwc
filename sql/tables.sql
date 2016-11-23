@@ -31,7 +31,7 @@ insert into osm.amenity(osm_id, geom)
     st_multi(planet_osm_polygon.way)::geometry(MultiPolygon, 23700) as way
    FROM planet_osm_polygon
   WHERE planet_osm_polygon.amenity IS NOT NULL AND (planet_osm_polygon.amenity = ANY (ARRAY['college'::text, 'community_centre'::text, 'courthouse'::text, 'doctors'::text, 'embassy'::text, 'grave_yard'::text, 'hospital'::text, 'library'::text, 'marketplace'::text, 'prison'::text, 'public_building'::text, 'school'::text, 'simming_pool'::text, 'theatre'::text, 'townhall'::text, 'university'::text]));
-delete from osm.buildings where not st_intersects(st_centroid(geom), (select geom from osm.country limit 1));
+--delete from osm.amenity where not st_intersects(st_centroid(geom), (select geom from osm.country limit 1));
 
 drop table if exists osm.boundary;
 create table osm.boundary(
