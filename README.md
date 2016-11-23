@@ -68,4 +68,20 @@ This will take a while based on the size of your data and your machine's capabil
 
 If the command ran successfully, you will see the following new tables in the 'public' schema: planet_osm_line, planet_osm_nodes, planet_osm_point, planet_osm_polygon, planet_osm_rels, planet_osm_roads, planet_osm_ways. Make sure you have all of them!
 
+## Create some GeoServer CSS styles
+
+In this step you will create styles by importing CSS files from this project's css folder. With these CSS files your map will look a lot like Google Maps.
+
+First log into GeoServer's admin page, navigate to "Styles", then hit "Add a new style". There, from the "Format" dropdown select "CSS" and click on the "Choose File" button below. Navigate to this project's "css" folder, click on the first CSS file ("style_amenity.css") and after opening it hit "Upload" on the admin page. In the style editor you will see this:
+
+```css
+* { fill: #ebd2cf; }
+
+```
+Add a name to the style like "style_amenity" and hit "Submit". Repeat it with all the remaining CSS files. At the end, you will have 18 GeoServer styles.
+
+## Create some GeoServer layers
+
+In this step you will connect GeoServer to the PostGIS database's "osm" schema as a Store. From this store you will add all the layers from the schema with a default style from one of the styles you just added recently. 
+
 ...TO BE CONTINUED!
