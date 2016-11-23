@@ -6,9 +6,9 @@
 
 ## What is osmgwc?
 
-With osmgwc you will be able to create a fast cached wms layer which will hopefully look like Google Maps. The main difference is that it will be based on the free and open source OpenStreetMap (OSM) data, stored in a PostGIS database and served with GeoServer. Another difference is that it will be stored in the spatial reference system (SRS) of your choice.
+Osmgwc is a step-by-step tutorial of how to create a fast cached WMS layer which will hopefully look similar to Google Maps' design. The main difference is that it will be based on the free and open source OpenStreetMap (OSM) data, stored in a PostGIS database and served with GeoServer. Another difference is that it will be stored in the spatial reference system (SRS) of your choice.
 
-If you follow the steps below, you will download OSM data, create an empty database, populate it with geodata in the desired SRS, then split the data into different tables (settlements, rivers etc.), add them as layers in GeoServer, style them with CSS styles, create a combined layergroup, define a grid for your SRS, then finally publish a cached layer.
+If you follow the steps below, you will download OSM data, create an empty database, populate it with geodata in the desired SRS, then split the data into different tables (settlements, rivers etc.), add them as layers in GeoServer, style them with CSS styles, create a combined layer group, define a grid for your SRS, then finally publish a cached layer.
 
 In this tutorial the data for Hungary will be used. The size of this country's OSM data requires reasonable time to process. 
 
@@ -70,27 +70,17 @@ If the command ran successfully, you will see the following new tables in the 'p
 
 ## Create some PostGIS tables
 
-Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (tables.sql). After running it, you will have a new schema called "osm" populated with 18 new tables, including the necessary (spatial) indexes.
+Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (```create_separate_tables.sql```). After running it (via [pgAdmin](https://www.pgadmin.org/download/) for instance), you will have a new schema called "osm" populated with 18 new tables, including the necessary (spatial) indexes.
 
-If you wish to use a different CRS (other than EPSG:23700) you manually have to change all occurences of "23700" to the desired EPSG code in the SQL file before execute it!
+If you wish to use a different SRS (other than EPSG:23700) make sure you manually change all occurences of "23700" to the desired EPSG code in the provided SQL file before execute it!
 
-If you wish to free up some space from the database you can delete the unnecessary tables from the public schema:
-
-```sql
-drop table planet_osm_line;
-drop table planet_osm_nodes;
-drop table planet_osm_point;
-drop table planet_osm_polygon;
-drop table planet_osm_rels;
-drop table planet_osm_roads;
-drop table planet_osm_ways;
-```
+After execution, if you would like to free up some space from the database you can delete the unnecessary tables from the public schema by executing the ```drop_unnecessary_tables.sql``` file.
 
 ## Create some GeoServer CSS styles
 
 In this step you will create styles by importing CSS files from this project's css folder. With these CSS files your map will look a lot like Google Maps.
 
-First log into GeoServer's admin page, navigate to "Styles", then hit "Add a new style". There, from the "Format" dropdown select "CSS" and click on the "Choose File" button below. Navigate to this project's "css" folder, click on the first CSS file ("style_amenity.css") and after opening it hit "Upload" on the admin page. In the style editor you will see this:
+First log into GeoServer's admin page, navigate to "Styles", then hit "Add a new style". There, from the "Format" dropdown select "CSS" and click on the "Choose File" button below. Navigate to this project's "css" folder, click on the first CSS file (```style_amenity.css```) and after opening it hit "Upload" on the admin page. In the style editor you will see this:
 
 ```css
 * { fill: #ebd2cf; }
@@ -111,6 +101,16 @@ On the second tab ("Publishing") set the default style according to the layer na
 You have to add all the other layers as well like this: on the admin page, hit "Layers", then "Add new layer", choose the recently created store, and select the next layer by hitting "Publish". From this you can continue just like the previous example.
 
 At the end you will have 18 new layers, all set with a previously created GeoServer style.
+
+## Create a Layer Group
+
+Most likely you wish to publish your cached WMS service as one single layer instead of a bunch of individual layers. With GeoServer you can create a layer group that combines individual layers with an appearance order. You can define which layers should be on top and which ones on bottom.
+
+Click on "Layer Groups" on the admin page, then "Add new layer group". Name your layer group e.g. osm_hungary. Next, add your layers individually by clicking on the "Add Layer..." button. The order of the layers is very important. This is how your layer order should look like:
+
+![layergroup](img/layergroup.png)
+
+After you added all the 18 layers, click on "Generate Bounds", then on "Save".
 
 
 ...TO BE CONTINUED!

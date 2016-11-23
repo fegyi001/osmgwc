@@ -19,7 +19,7 @@
   stroke-opacity: 0.3;
   font-size: 8.5;
   label: [name];
-  label-geometry: [centroid(way)];
+  label-geometry: [centroid(geom)];
 }
 
 [@scale < 100001] [@scale > 20001] {
@@ -27,7 +27,7 @@
   stroke-opacity: 0.3;
   font-size: 10;
   label: [name];
-  label-geometry: [centroid(way)];
+  label-geometry: [centroid(geom)];
 }
 
 [@scale < 20001] {
