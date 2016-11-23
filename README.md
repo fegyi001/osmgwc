@@ -36,7 +36,7 @@ In this tutorial the data for Hungary will be used. The size of this country's O
 
 ## Download OSM data
 
-The data is freely available on GEOFABRIK's [download site](http://download.geofabrik.de/). For Hungary download the latest dataset in bz2 format from [here](http://download.geofabrik.de/europe/hungary-latest.osm.bz2). After download, extract it to a folder of your choice. Its extension is .osm and its size is about 2.5 GB.
+The data is freely available on GEOFABRIK's [download site](http://download.geofabrik.de/). For Hungary download the latest dataset in bz2 format from [here](http://download.geofabrik.de/europe/hungary-latest.osm.bz2) (~200 MB). After download, extract it to a folder of your choice. Its extension is .osm and its size is about 2.5 GB.
 
 ## Create a new PostGIS database
 
