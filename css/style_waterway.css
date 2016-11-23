@@ -1,0 +1,38 @@
+* { 
+  font-fill: #7298d5; 
+  font-family: "DejaVu Sans";
+  font-weight: italic;
+  halo-color: white;
+  halo-radius: 1;
+  -gt-label-follow-line: true;
+  -gt-label-max-angle-delta: 90;
+  -gt-label-max-displacement: 800;
+  -gt-label-repeat: 500;
+  stroke-linecap: round;
+}
+
+[@scale > 1000001] [waterway = 'river'] {
+  stroke: #a0c3ff;
+  stroke-opacity: 0.7;
+  stroke-width: 0.5;
+}
+
+[@scale < 1000001] [@scale > 200001] [waterway = 'river']{
+  stroke-opacity: 0.7;
+  stroke-width: 1;
+  stroke: #a0c3ff;
+} 
+
+[@scale < 200001] [@scale > 100001] {
+  stroke-opacity: 0.7;
+  stroke-width: 1.2;
+  stroke: #a0c3ff;
+} 
+
+[@scale < 100001] {
+  stroke: #a0c3ff;
+  stroke-opacity: 0.7;
+  stroke-width: 1.5;
+  font-size: 8.5;
+  label: [name];
+}

@@ -1,0 +1,32 @@
+* {
+  font-family: "DejaVu Sans";
+  halo-color: #ffffff;
+  halo-radius: 0.3;
+  font-weight: normal;
+  font-fill: #999;
+  font-style: normal; 
+  label-anchor: 0.5 0;
+  label-offset: 0 5;
+}
+
+[@scale < 10001] [@scale > 5000] {
+  fill: #000000, #f1efe8;
+  fill-opacity: 0.4, 1;
+  geometry: [offset(way, 0.5, -0.5)], [way];
+}
+
+[@scale < 5001] [@scale > 2500] {
+  fill: #000000, #f1efe8;
+  fill-opacity: 0.4, 1;
+  geometry: [offset(way, 0.4, -0.4)], [way];
+  font-size: 8.5;
+  label: [name];
+}
+
+[@scale < 2501] {
+  fill: #000000, #f1efe8;
+  fill-opacity: 0.4, 1;
+  geometry: [offset(way, 0.3, -0.3)], [way];
+  font-size: 8.5;
+  label: [name];
+}

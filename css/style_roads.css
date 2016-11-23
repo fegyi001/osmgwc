@@ -1,0 +1,51 @@
+* { 
+  font-fill: #484848; 
+  font-family: "DejaVu Sans";
+  font-weight: normal;
+  halo-color: white;
+  halo-radius: 1;
+  -gt-label-follow-line: true;
+  -gt-label-max-angle-delta: 90;
+  -gt-label-max-displacement: 400;
+  -gt-label-repeat: 300;
+  stroke-linecap: round;
+}
+
+[@scale < 100001] [@scale > 50001] {
+  stroke: white;
+  stroke-width: 0.3;
+}
+
+[@scale < 50001] [@scale > 25001] {
+  stroke: #c2c2c2, white;
+  stroke-width: 2.2, 1;
+  stroke-opacity: 0.5, 1;
+  z-index: 0, 1;
+}
+
+[@scale < 25001] [@scale > 10001] {
+  stroke: #c2c2c2, white;
+  stroke-width: 5, 4;
+  stroke-opacity: 0.5, 1;
+  z-index: 0, 1;
+  label: [name];
+  font-size: 8;
+}
+
+[@scale < 10001] [@scale > 5001] {
+  stroke: #c2c2c2, white;
+  stroke-width: 7, 6;
+  stroke-opacity: 0.5, 1;
+  z-index: 0, 1;
+  label: [name];
+  font-size: 10;
+}
+
+[@scale < 5001] {
+  stroke: #c2c2c2, white;
+  stroke-width: 10, 8;
+  stroke-opacity: 0.5, 1;
+  z-index: 0, 1;
+  label: [name];
+  font-size: 10;
+}

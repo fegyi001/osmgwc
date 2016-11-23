@@ -1,0 +1,31 @@
+[@scale < 50001] [@scale > 10000] {
+   stroke: #444;
+   stroke-opacity: 0.2;
+   stroke-width: 0.3;
+}
+
+[@scale < 10001] [@scale > 5000] {
+   stroke: #8f8f8f, symbol("shape://vertline");
+   stroke-opacity: 0.8;
+   stroke-width: 0.3;
+}
+
+[@scale < 10001] [@scale > 5000] :nth-stroke(2) {
+  size: 3;
+  stroke: #8f8f8f;
+  stroke-opacity: 0.2;
+  stroke-width: 0.3;
+}
+
+[@scale < 5001] {
+   stroke: #8f8f8f, symbol("shape://vertline");
+   stroke-opacity: 0.8;
+   stroke-width: 0.3;
+}
+
+[@scale < 5001] :nth-stroke(2) {
+  size: 5;
+  stroke: #8f8f8f;
+  stroke-opacity: 0.2;
+  stroke-width: 0.5;
+}

@@ -1,0 +1,54 @@
+* { 
+  stroke: #C5AB8E;
+  font-family: "Dialog.plain";
+  stroke-opacity: 0.6;
+  font-weight: normal;
+  font-fill: #777;
+  font-style: normal; 
+  label-anchor: 0.5 0;
+  label-offset: 0 5;
+  -gt-label-max-displacement: 600;
+  -gt-label-repeat: 600;
+}
+
+[@scale > 500001] {
+  stroke-opacity: 0;
+}
+
+[@scale < 500001] [@scale > 200001] {
+  stroke-width: 0.1;
+}
+
+[@scale < 200001] [@scale > 10001] {
+  stroke-width: 0.3;
+}
+
+[@scale < 200001] [@scale > 10001] [way_area > 326122] [way_area < 9275414]{
+  font-size: 8.5;
+  label: [name];
+  label-geometry: [centroid(way)];
+}
+[@scale < 200001] [@scale > 10001] [way_area > 9275414] [way_area < 15043800] {
+  font-size: 9.5;
+  label: [name];
+  label-geometry: [centroid(way)];
+}
+[@scale < 200001] [@scale > 10001] [way_area > 15043800] [way_area < 22999260] {
+  font-size: 10.5;
+  label: [name];
+  label-geometry: [centroid(way)];
+}
+[@scale < 200001] [@scale > 10001] [way_area > 22999260] [way_area < 39459160] {
+  font-size: 13;
+  label: [name];
+  label-geometry: [centroid(way)];
+}
+[@scale < 200001] [@scale > 10001] [way_area > 39459160] {
+  font-size: 16;
+  label: [name];
+  label-geometry: [centroid(way)];
+}
+
+[@scale < 10001] {
+  stroke-width: 0.8;
+}

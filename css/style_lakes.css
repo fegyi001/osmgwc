@@ -1,0 +1,39 @@
+* { 
+  font-family: "DejaVu Sans";
+  halo-color: white;
+  halo-radius: 0.7;
+  font-weight: normal;
+  font-fill: #7298d5;
+  font-style: italic; 
+  label-anchor: 0.5 0;
+  label-offset: 0 5;
+  -gt-label-follow-line: true;
+  -gt-label-max-angle-delta: 90;
+  -gt-label-max-displacement: 800;
+  -gt-label-repeat: 500;
+}
+
+[@scale < 2000001] [@scale > 200001] [way_area > 541714434]{
+  font-size: 8.5;
+  label: [name];
+}
+
+[@scale < 200001] [@scale > 100001] [way_area > 20000000]{
+  font-size: 8.5;
+  label: [name];
+}
+
+[@scale < 1000001] [@scale > 50001] [way_area > 5000000]{
+  font-size: 8.5;
+  label: [name];
+}
+
+[@scale < 50001] [@scale > 20001] [way_area > 300000]{
+  font-size: 8.5;
+  label: [name];
+}
+
+[@scale < 20001] {
+  font-size: 8.5;
+  label: [name];
+}
