@@ -120,7 +120,7 @@ Before creating a cached WMS service it would be nice to look what you've accomp
 
 ## Why cached?
 
-If you tried to preview the layer group as mentioned above you requested the GeoServer to do a lot of calculation each time you zoomed or panned the map. For one user this was relatively fast, but imagine a lot of users requesting the same layer group at the same time. After a while, GeoServer will not be able to serve the clients with an acceptable speed. However, if the server stores a generated tile for a given zoom level in an image file (jpg, png etc.), it does not have to render it again, but instead simply send that image back to the client. It saves a LOT of computation. Every major WMS tile servers (OpenStreetMap, Google, Bing etc.) use some caching method.
+If you tried to preview the layer group as suggested above you requested the GeoServer to do a lot of calculation each time you zoomed or panned the map. For one user this was relatively fast, but imagine a lot of users requesting the same layer group at the same time. After a while, GeoServer will not be able to serve the clients with an acceptable speed. However, if the server stores a generated tile for a given zoom level in an image file (jpg, png etc.), it does not have to render it again, but instead simply send that image back to the client. It saves a LOT of computation. Every major WMS tile servers (OpenStreetMap, Google, Bing etc.) use some caching method.
 
 ## Create a Gridset for your SRS
 
@@ -132,4 +132,21 @@ To do that, click on "Gridsets" on the admin page, then on "Create a new gridset
 
 After that, click on "Save". Your newly created gridset should be visible among the other gridsets.
 
-...TO BE CONTINUED!
+## Create a cached WMS service
+
+Navigate to your layer group by click on "Layer Groups" and select "osm_hungary". Click the tab called "Tile Caching", and check the checkbox for "Create a cached layer for this layer group". After that, a lot of options are visible, but only these are important:
+
+* check the checkbox for "Enable tile caching for this layer"
+* "Metatiling factors" should be 4 tiles wide, 4 tiles high
+* "Tile Image Formats": only select "image/png"
+* at the "Gridset" section remove "EPSG:900913" and "EPSG:4326" by clicking on the red circle at the end of their line
+* add your gridset with the "Add grid subset" dropdown (after selecting "EPSG:23700", don't forget to click on the green plus icon next to it)
+
+If all parameters are set correctly, hit "Save".
+
+To see how your cached service looks like, go to "Tile Layers". You must see your layer group in the list. There is a dropdown for the "Preview" column, select "EPSG:23700 / png". You will jump to a new preview site of the layer group. You can zoom & pan just like before. But there is one big difference: if you zoom & pan, you will experience that it is a bit slower than before. It is because this is the exact moment when GeoServer stores the rendered images in its folder hierarchy and it takes some extra time. But if you refresh the page, however, the map should be visible instantly. If you zoom & pan to an area you have been before, the map will refresh also in no time. This is because of the tile caching.
+
+![cached](img/cached.png)
+
+## Author
+Osmgwc was created by [Gergely Padányi-Gulyás](http://gpadanyig.com)
