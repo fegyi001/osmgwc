@@ -72,6 +72,8 @@ If the command ran successfully, you will see the following new tables in the 'p
 
 Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (tables.sql). After running it, you will have a new schema called "osm" populated with 18 new tables, including the necessary (spatial) indexes.
 
+If you wish to use a different CRS (other than EPSG:23700) you manually have to change all occurences of "23700" to the desired EPSG code in the SQL file before execute it!
+
 ## Create some GeoServer CSS styles
 
 In this step you will create styles by importing CSS files from this project's css folder. With these CSS files your map will look a lot like Google Maps.
@@ -88,6 +90,15 @@ Add a name to the style like "style_amenity" and hit "Submit". Repeat it with al
 
 In this step you will connect GeoServer to the PostGIS database's "osm" schema with a Store. From this store you will add all the layers from the database schema with a default style from one of the styles you just added recently. 
 
+From the admin page, hit "Stores" and then "Add new store". Select "PostGIS" and fill the form with the necessary parameters (Data Source Name, dbtype, host, port, database, schema, user, password), then hit save. Set the schema to "osm" since this is the schema that was created by the SQL script which stores the data of the categorized geometries.
+
+If you succeeded (managed to connect to the database) you will see the list of available tables that you can add as layers. Select the first one ("amenity") by hitting "Publish". You are then navigated to the "Edit layer" page where you have to fill the "Bounding Boxes" part by hitting on "Compute from data" and "Compute from native bounds". You will see that the Coordinate Reference System is recognized as EPSG:23700.
+
+On the second tab ("Publishing") set the default style according to the layer name (in this case: "style_amenity") and at the end of the page hit "Save". You just have successfully created a layer which looks like a Google Maps layer!
+
+You have to add all the other layers as well like this: on the admin page, hit "Layers", then "Add new layer", choose the recently created store, and select the next layer by hitting "Publish". From this you can continue just like the previous example.
+
+At the end you will have 18 new layers, all set with a previously created GeoServer style.
 
 
 ...TO BE CONTINUED!
