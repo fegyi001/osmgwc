@@ -51,7 +51,7 @@ create extension postgis;
 Navigate to the folder of the extracted .osm file, and run osm2pgsql (here with Windows syntax):
 
 ```bat
-osm2pgsql -s -H localhost -P 5432 -U postgres -W -d osm hungary-latest.osm --cache-strategy sparse --cache 100 -E 23700 -S C:\Programs\osm2pgsql\default.style
+C:\Programok\osm2pgsql\osm2pgsql -s -H localhost -P 5432 -U postgres -W -d osm hungary-latest.osm --cache-strategy sparse --cache 100 -E 23700 -S C:\Programs\osm2pgsql\default.style
 ```
 
 Parameters are:
@@ -62,7 +62,7 @@ Parameters are:
 * d: database name (in this case: osm)
 * E: coordinate reference system (in this case: 23700)
 * S: sometimes osm2pgsql requires a default.style file, you can find it in osm2pgsql's install dir
-* cache-stratey and cache: if your machine is not very strong use these parameters, otherwise you can omit them
+* cache-strategy and cache: if your machine is not very strong use these parameters, otherwise you can omit them
 
 This will take a while based on the size of your data and your machine's capabilities. For me it took around 10 minutes to process.
 
