@@ -70,7 +70,7 @@ If the command ran successfully, you will see the following new tables in the 'p
 
 ## Create some PostGIS tables
 
-Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (tables.sql). After running it, you will have a new schema called "osm" populated with 18 new tables.
+Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (tables.sql). After running it, you will have a new schema called "osm" populated with 18 new tables, including the necessary (spatial) indexes.
 
 ## Create some GeoServer CSS styles
 
@@ -86,6 +86,8 @@ Add a name to the style like "style_amenity" and hit "Submit". Repeat it with al
 
 ## Create some GeoServer layers
 
-In this step you will connect GeoServer to the PostGIS database's "osm" schema as a Store. From this store you will add all the layers from the schema with a default style from one of the styles you just added recently. 
+In this step you will connect GeoServer to the PostGIS database's "osm" schema with a Store. From this store you will add all the layers from the database schema with a default style from one of the styles you just added recently. 
+
+
 
 ...TO BE CONTINUED!
