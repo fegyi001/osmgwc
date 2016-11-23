@@ -148,5 +148,9 @@ To see how your cached service looks like, go to "Tile Layers". You must see you
 
 ![cached](img/cached.png)
 
+## Final words
+
+If you successfully completed this tutorial you hopefully learned a lot about GeoServer and its CSS styling. Using CSS is much more easier and fun than the old SLD. If you don't like my design you can easily add your own styles and create a better map, it is completely up to you. I just hope that I made the whole process a bit easier so that you can focus on the styling from a solid base. 
+
 ## Author
 Osmgwc was created by [Gergely Padányi-Gulyás](http://gpadanyig.com)
