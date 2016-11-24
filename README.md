@@ -12,6 +12,10 @@ If you follow the steps below, you will download OSM data, create an empty datab
 
 In this tutorial the data for Hungary will be used. The size of this country's OSM data requires reasonable time to process. 
 
+## Live demo
+
+You can check the outcome of this tutorial by clicking [here](http://188.166.116.137:8081/geoserver/gwc/demo/osm_hungary?gridSet=EPSG:23700&format=image/png).
+
 ## Prerequisites
 
 * PostgreSQL with PostGIS: 
@@ -149,6 +153,8 @@ If all parameters are set correctly, hit "Save".
 To see how your cached service looks like, go to "Tile Layers". You must see your layer group in the list. There is a dropdown for the "Preview" column, select "EPSG:23700 / png". You will jump to a new preview site of the layer group. You can zoom & pan just like before. But there is one big difference: if you zoom & pan, you will experience that it is a bit slower than before. It is because this is the exact moment when GeoServer stores the rendered images in its folder hierarchy and it takes some extra time. But if you refresh the page, however, the map should be visible instantly. If you zoom & pan to an area you have been before, the map will refresh also in no time. This is because of the tile caching.
 
 ![cached](img/cached.png)
+
+Or you can always check the live demo [here](http://188.166.116.137:8081/geoserver/gwc/demo/osm_hungary?gridSet=EPSG:23700&format=image/png).
 
 ## Final words
 
