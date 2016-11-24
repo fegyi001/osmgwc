@@ -87,8 +87,8 @@ In this step you will create styles by importing CSS files from this project's c
 First log into GeoServer's admin page, navigate to "Styles", then hit "Add a new style". There, from the "Format" dropdown select "CSS" and click on the "Choose File" button below. Navigate to this project's "css" folder, click on the first CSS file (```style_amenity.css```) and after opening it hit "Upload" on the admin page. In the style editor you will see this:
 
 ```css
-[@scale < 100001] {
-  fill: #ebd2cf;
+[@scale < 100001] { 
+  fill: #f9edd5; 
 }
 ```
 
