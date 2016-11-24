@@ -1,1 +1,3 @@
-* { fill: #ebd2cf; }
+[@scale < 10001] { 
+  fill: #ebd2cf; 
+}

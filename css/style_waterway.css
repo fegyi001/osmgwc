@@ -1,14 +1,14 @@
 * { 
-  font-fill: #7298d5; 
+  font-fill: #5588cb; 
   font-family: "DejaVu Sans";
   font-weight: italic;
-  halo-color: white;
-  halo-radius: 1;
   -gt-label-follow-line: true;
   -gt-label-max-angle-delta: 90;
   -gt-label-max-displacement: 800;
   -gt-label-repeat: 500;
+  -gt-label-padding: 10;
   stroke-linecap: round;
+  label-offset: 7px;
 }
 
 [@scale > 1000001] [waterway = 'river'] {
