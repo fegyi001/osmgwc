@@ -1,28 +1,10 @@
 * { 
-  fill: #e9e5dc; 
+  fill: #eaeaea; 
   font-family: "DejaVu Sans";
   halo-color: white;
   halo-radius: 1;
   font-weight: normal;
-  font-fill: #aaa081;
+  font-fill: #000000;
   font-size: 9;
   font-style: italic;
 }
-
-/*
-[@scale < 100001] [@scale > 25001] [admin_level=9] {
-  label: [uppername];
-  font-size: 9;
-}
-
-[@scale < 25001] [admin_level=9] {
-  label: [uppername];
-  font-size: 12;
-  font-fill: #888;
-}
-
-[@scale < 25001] [admin_level=10] {
-  label: [uppername];
-  font-size: 7;
-}
-*/
