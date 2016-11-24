@@ -122,7 +122,7 @@ After you added all the 18 layers, click on "Generate Bounds", then on "Save".
 
 Before creating a cached WMS service it would be nice to look what you've accomplished so far. Click on "Layer Preview" on the admin page, scroll down to the "osm_hungary" layer group and click on "OpenLayers". You will be navigated to a new page with a live WMS service of your layer group. You can zoom & pan the interactive map, and you should see that it is reasonably fast (at least compared to how many layers and styles the GeoServer has to synchronize not to mention the amount of data). You should see that it  indeed looks a lot like Google Maps itself:
 
-![preview](img/preview.png)
+![preview](img/preview2.png)
 
 ## Why cached?
 
@@ -152,7 +152,7 @@ If all parameters are set correctly, hit "Save".
 
 To see how your cached service looks like, go to "Tile Layers". You must see your layer group in the list. There is a dropdown for the "Preview" column, select "EPSG:23700 / png". You will jump to a new preview site of the layer group. You can zoom & pan just like before. But there is one big difference: if you zoom & pan, you will experience that it is a bit slower than before. It is because this is the exact moment when GeoServer stores the rendered images in its folder hierarchy and it takes some extra time. But if you refresh the page, however, the map should be visible instantly. If you zoom & pan to an area you have been before, the map will refresh also in no time. This is because of the tile caching.
 
-![cached](img/cached.png)
+![cached](img/cached2.png)
 
 Or you can always check the live demo [here](http://188.166.116.137:8081/geoserver/gwc/demo/osm_hungary?gridSet=EPSG:23700&format=image/png).
 
