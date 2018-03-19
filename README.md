@@ -154,7 +154,7 @@ To see how your cached service looks like, go to "Tile Layers". You must see you
 
 ![cached](img/cached2.png)
 
-Or you can always check the live demo [here](http://188.166.116.137:8081/geoserver/gwc/demo/osm_hungary?gridSet=EPSG:23700&format=image/png).
+Or you can always check the live demo [here](http://188.166.116.137:8080/geoserver/gwc/demo/osmWsp:osm_hungary?gridSet=EPSG:23700&format=image/png).
 
 ## Final words
 
