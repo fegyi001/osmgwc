@@ -9,12 +9,12 @@
   -gt-label-max-displacement: 400;
   -gt-label-repeat: 300;
   stroke-linecap: round;
-  stroke: #ffdf69;
+  stroke: #ffebaf;
   stroke-width: 1px;
 }
 
 [@scale < 200001] [@scale > 100001] {
-  stroke: #8f8f8f, #ffdf69;
+  stroke: #8f8f8f, #ffebaf;
   stroke-width: 2.6, 1.5;
   stroke-opacity: 0.3, 1;
   z-index: 0, 1;
@@ -23,7 +23,7 @@
 }
 
 [@scale < 100001] [@scale > 50001] {
-  stroke: #8f8f8f, #ffdf69;
+  stroke: #8f8f8f, #ffebaf;
   stroke-width: 3, 2;
   stroke-opacity: 0.5, 1;
   z-index: 0, 1;
@@ -32,7 +32,7 @@
 }
 
 [@scale < 50001] [@scale > 25001] {
-  stroke: #8f8f8f, #ffdf69;
+  stroke: #8f8f8f, #ffebaf;
   stroke-width: 3, 2;
   stroke-opacity: 0.5, 1;
   z-index: 0, 1;
@@ -41,7 +41,7 @@
 }
 
 [@scale < 25001] [@scale > 10001] {
-  stroke: #8f8f8f, #ffdf69;
+  stroke: #8f8f8f, #ffebaf;
   stroke-width: 5, 4;
   stroke-opacity: 0.5, 1;
   z-index: 0, 1;
@@ -50,7 +50,7 @@
 }
 
 [@scale < 10001] [@scale > 5001] {
-  stroke: #8f8f8f, #ffdf69;
+  stroke: #8f8f8f, #ffebaf;
   stroke-width: 7, 6;
   stroke-opacity: 0.5, 1;
   z-index: 0, 1;
@@ -59,7 +59,7 @@
 }
 
 [@scale < 5001] {
-  stroke: #8f8f8f, #ffdf69;
+  stroke: #8f8f8f, #ffebaf;
   stroke-width: 12, 11;
   stroke-opacity: 0.5, 1;
   z-index: 0, 1;
