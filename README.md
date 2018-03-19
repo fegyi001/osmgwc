@@ -10,7 +10,7 @@ Osmgwc is a step-by-step tutorial of how to create a fast cached WMS layer which
 
 If you follow the steps below, you will download OSM data, create an empty database, populate it with geodata in the desired SRS, then split the data into different tables (settlements, rivers etc.), add them as layers in GeoServer, style them with CSS styles, create a combined layer group, define a grid for your SRS, then finally publish a cached layer.
 
-In this tutorial the data for Hungary will be used. The size of this country's OSM data requires reasonable time to process. 
+In this tutorial the data for Hungary will be used. The size of this country's OSM data requires reasonable time to process.
 
 ## Live demo
 
@@ -18,25 +18,25 @@ You can check the outcome of this tutorial by clicking [here](http://188.166.116
 
 ## Prerequisites
 
-* PostgreSQL with PostGIS: 
+* PostgreSQL with PostGIS:
 
-    For this tutorial I used [PostgreSQL v.9.6.1 with PostGIS v.2.3.0](http://www.enterprisedb.com/products-services-training/pgdownload)
+  For this tutorial I used [PostgreSQL v.9.6.1 with PostGIS v.2.3.0](http://www.enterprisedb.com/products-services-training/pgdownload)
 
-* GeoServer with the CSS plugin: 
+* GeoServer with the CSS plugin:
 
-    For this tutorial I used [GeoServer v.2.10.0](http://geoserver.org/release/2.10.0/). Download the CSS plugin from [here](https://sourceforge.net/projects/geoserver/files/GeoServer/2.10.0/extensions/geoserver-2.10.0-css-plugin.zip/download), then unzip it into GeoServer's lib folder which can be found here: [GeoServer install dir]/webapps/geoserver/WEB-INF/lib, then restart GeoServer.
+  For this tutorial I used [GeoServer v.2.10.0](http://geoserver.org/release/2.10.0/). Download the CSS plugin from [here](https://sourceforge.net/projects/geoserver/files/GeoServer/2.10.0/extensions/geoserver-2.10.0-css-plugin.zip/download), then unzip it into GeoServer's lib folder which can be found here: [GeoServer install dir]/webapps/geoserver/WEB-INF/lib, then restart GeoServer.
 
 * osm2pgsql
 
-    osm2pgsql is an open source tool to populate a PostGIS database with osm data. For Windows download from [here](https://ci.appveyor.com/project/openstreetmap/osm2pgsql/build/artifacts), for Linux run this command: ```apt-get install -y osm2pgsql```
+  osm2pgsql is an open source tool to populate a PostGIS database with osm data. For Windows download from [here](https://ci.appveyor.com/project/openstreetmap/osm2pgsql/build/artifacts), for Linux run this command: `apt-get install -y osm2pgsql`
 
 * bzip2
 
-    bzip2 is an unzipper tool that can be used to extract data from .bz2 files. For Windows download from [here](http://www.bzip.org/downloads.html), for Linux run this command: ```apt-get install -y bzip2```
+  bzip2 is an unzipper tool that can be used to extract data from .bz2 files. For Windows download from [here](http://www.bzip.org/downloads.html), for Linux run this command: `apt-get install -y bzip2`
 
 * proj
 
-    To be able to store OSM data in an SRS of your choice the proj library is needed. If you use Windows, the usage of [OSGeo4W](http://trac.osgeo.org/osgeo4w/) is recommended. With advanced install you should select the proj package from the commandline utilities as well as from the libs. If you use Linux run this command: ```apt-get install -y libproj-dev```
+  To be able to store OSM data in an SRS of your choice the proj library is needed. If you use Windows, the usage of [OSGeo4W](http://trac.osgeo.org/osgeo4w/) is recommended. With advanced install you should select the proj package from the commandline utilities as well as from the libs. If you use Linux run this command: `apt-get install -y libproj-dev`
 
 ## Download OSM data
 
@@ -74,17 +74,17 @@ If the command ran successfully, you will see the following new tables in the 'p
 
 ## Create some PostGIS tables
 
-Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (```create_separate_tables.sql```). After running it (via [pgAdmin](https://www.pgadmin.org/download/) for instance), you will have a new schema called "osm" populated with 18 new tables, including the necessary (spatial) indexes.
+Now you have a lot of uncategorized data in your database now. It would be great to have a separate table for every category you wish to visualize on your map e.g. settlements, rivers, roads etc. Fortunately you only have to execute one single SQL script from the "sql" folder of this project (`create_separate_tables.sql`). After running it (via [pgAdmin](https://www.pgadmin.org/download/) for instance), you will have a new schema called "osm" populated with 18 new tables, including the necessary (spatial) indexes.
 
 If you wish to use a different SRS (other than EPSG:23700) make sure you manually change all occurences of "23700" to the desired EPSG code in the provided SQL file before execute it!
 
-After execution, if you would like to free up some space from the database you can delete the unnecessary tables from the public schema by executing the ```drop_unnecessary_tables.sql``` file.
+After execution, if you would like to free up some space from the database you can delete the unnecessary tables from the public schema by executing the `drop_unnecessary_tables.sql` file.
 
 ## Create some GeoServer CSS styles
 
 In this step you will create styles by importing CSS files from this project's css folder. With these CSS files your map will look a lot like Google Maps.
 
-First log into GeoServer's admin page, navigate to "Styles", then hit "Add a new style". There, from the "Format" dropdown select "CSS" and click on the "Choose File" button below. Navigate to this project's "css" folder, click on the first CSS file (```style_amenity.css```) and after opening it hit "Upload" on the admin page. In the style editor you will see this:
+First log into GeoServer's admin page, navigate to "Styles", then hit "Add a new style". There, from the "Format" dropdown select "CSS" and click on the "Choose File" button below. Navigate to this project's "css" folder, click on the first CSS file (`style_amenity.css`) and after opening it hit "Upload" on the admin page. In the style editor you will see this:
 
 ```css
 [@scale < 100001] {
@@ -96,7 +96,7 @@ Add a name to the style like "style_amenity" and hit "Submit". Repeat it with al
 
 ## Create some GeoServer layers
 
-In this step you will connect GeoServer to the PostGIS database's "osm" schema with a Store. From this store you will add all the layers from the database schema with a default style from one of the styles you just added recently. 
+In this step you will connect GeoServer to the PostGIS database's "osm" schema with a Store. From this store you will add all the layers from the database schema with a default style from one of the styles you just added recently.
 
 From the admin page, hit "Stores" and then "Add new store". Select "PostGIS" and fill the form with the necessary parameters (Data Source Name, dbtype, host, port, database, schema, user, password), then hit save. Set the schema to "osm" since this is the schema that was created by the SQL script which stores the data of the categorized geometries.
 
@@ -120,7 +120,7 @@ After you added all the 18 layers, click on "Generate Bounds", then on "Save".
 
 ## Preview the layer group
 
-Before creating a cached WMS service it would be nice to look what you've accomplished so far. Click on "Layer Preview" on the admin page, scroll down to the "osm_hungary" layer group and click on "OpenLayers". You will be navigated to a new page with a live WMS service of your layer group. You can zoom & pan the interactive map, and you should see that it is reasonably fast (at least compared to how many layers and styles the GeoServer has to synchronize not to mention the amount of data). You should see that it  indeed looks a lot like Google Maps itself:
+Before creating a cached WMS service it would be nice to look what you've accomplished so far. Click on "Layer Preview" on the admin page, scroll down to the "osm_hungary" layer group and click on "OpenLayers". You will be navigated to a new page with a live WMS service of your layer group. You can zoom & pan the interactive map, and you should see that it is reasonably fast (at least compared to how many layers and styles the GeoServer has to synchronize not to mention the amount of data). You should see that it indeed looks a lot like Google Maps itself:
 
 ![preview](img/preview.png)
 
@@ -158,7 +158,14 @@ Or you can always check the live demo [here](http://188.166.116.137:8081/geoserv
 
 ## Final words
 
-If you successfully completed this tutorial you hopefully learned a lot about GeoServer and its CSS styling. Using CSS is much more easier and fun than the old SLD styling. If you don't like my design you can easily add your own styles and create a better map, it is completely up to you. I just hope that I made the whole process a bit easier so that you can focus on the styling from a solid base. 
+If you successfully completed this tutorial you hopefully learned a lot about GeoServer and its CSS styling. Using CSS is much more easier and fun than the old SLD styling. If you don't like my design you can easily add your own styles and create a better map, it is completely up to you. I just hope that I made the whole process a bit easier so that you can focus on the styling from a solid base.
 
 ## Author
+
 Osmgwc was created by [Gergely Padányi-Gulyás](http://gpadanyig.com)
+
+## Donations
+
+Any donations are highly appreciated.
+
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M6FLQ4PEX23EG)
