@@ -163,9 +163,3 @@ If you successfully completed this tutorial you hopefully learned a lot about Ge
 ## Author
 
 Osmgwc was created by [Gergely Padányi-Gulyás](mailto:fegyi001@gmail.com)
-
-## Donations
-
-Any donations are highly appreciated.
-
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M6FLQ4PEX23EG)
