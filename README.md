@@ -14,7 +14,7 @@ In this tutorial the data for Hungary will be used. The size of this country's O
 
 ## Live demo
 
-You can check the outcome of this tutorial by clicking [here](http://188.166.116.137:8080/geoserver/gwc/demo/osmWsp:osm_hungary?gridSet=EPSG:23700&format=image/png).
+You can check the outcome of this tutorial by clicking [here](http://188.166.116.137:8080/geoserver/gwc/demo/osmWsp:osm_hungary?gridSet=EPSG:900913&format=image/png).
 
 ## Prerequisites
 
