@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  db:
+    build:
+      context: ./docker/db
+      dockerfile: Dockerfile
+      args:
+        POSTGRES_VERSION: ${POSTGRES_VERSION}
+        POSTGIS_VERSION: ${POSTGIS_VERSION}
+        TIMEZONE: ${TIMEZONE}
+    image: osmgwc-db
+    volumes:
+      - db:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    env_file: ./docker/db/.env
+    environment:
+      - DB_PASSWORD=${OSMGWC_DB_PASSWORD:-abc123}
+      - POSTGRES_PASSWORD=${OSMGWC_POSTGRES_PASSWORD:-postgres}
+
+volumes:
+  db:
