@@ -11,36 +11,33 @@
   label-offset: 0 5;
 }
 
-[@scale > 8000001] {
+[@scale > 1200001] {
   stroke-opacity: 0;
 }
 
-[@scale < 8000001] [@scale > 5000001] {
-  stroke-width: 0.7;
-}
 
-[@scale < 5000001] [@scale > 2000001] {
+[@scale < 1200000] [@scale > 800001] {
   stroke-width: 1;
   font-size: 8;
   label: [uppername];
   label-geometry: [centroid(geom)]; 
 }
 
-[@scale < 2000001] [@scale > 1000001] {
+[@scale < 800000] [@scale > 500001] {
   stroke-width: 1.5;
   font-size: 10;
   label: [uppername];
   label-geometry: [centroid(geom)]; 
 }
 
-[@scale < 1000001] [@scale > 500001] {
+[@scale < 500000] [@scale > 300001] {
   stroke-width: 2;
   font-size: 10;
   label: [uppername];
   label-geometry: [centroid(geom)]; 
 }
 
-[@scale < 500001] [@scale > 200001] {
+[@scale < 300001] [@scale > 200001] {
   stroke-width: 3;
   font-size: 12;
   label: [uppername];

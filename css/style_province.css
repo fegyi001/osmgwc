@@ -1,0 +1,61 @@
+* { 
+    stroke: #C5AB8E;
+    font-family: "DejaVu Sans";
+    stroke-opacity: 0.4;
+    halo-color: white;
+    halo-radius: 0.7;
+    font-weight: normal;
+    font-fill: #b0824b;
+    font-style: italic; 
+    label-anchor: 0.5 0;
+    label-offset: 0 5;
+  }
+  
+  [@scale > 8000001] {
+    stroke-opacity: 0.7;
+  }
+  
+  [@scale < 8000001] [@scale > 5000001] {
+    stroke-width: 0.7;
+  }
+  
+  [@scale < 11000001] [@scale > 2000001] {
+    stroke-width: 1;
+    font-size: 8;
+    label: [uppername];
+    label-geometry: [centroid(geom)]; 
+  }
+  
+  
+  [@scale < 1000001] [@scale > 500001] {
+    stroke-width: 2;
+    font-size: 10;
+    label: [uppername];
+    label-geometry: [centroid(geom)]; 
+  }
+  
+  [@scale < 500001] [@scale > 200001] {
+    stroke-width: 3;
+    font-size: 12;
+    label: [uppername];
+    label-geometry: [centroid(geom)]; 
+  }
+  
+  [@scale < 200001] [@scale > 100001] {
+    stroke-width: 3.5;
+    font-size: 12;
+    label: [uppername];
+    label-geometry: [centroid(geom)]; 
+  }
+  
+  [@scale < 100001] [@scale > 50001] {
+    stroke-width: 4;
+    font-size: 12;
+    label: [uppername];
+    label-geometry: [centroid(geom)]; 
+  }
+  
+  [@scale < 50001] {
+    stroke-width: 4;
+  }
+  

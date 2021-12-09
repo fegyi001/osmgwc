@@ -1,37 +1,42 @@
 * { 
   stroke: #C5AB8E;
-  font-family: "Dialog.plain";
+  font-family: "DejaVu Sans";
+  stroke-opacity: 0.6;
+  halo-color: white;
+  halo-radius: 0.7;
   font-weight: normal;
-  font-fill: #777;
-  font-style: normal; 
+  font-fill: #b0824b;
+  font-style: italic; 
   label-anchor: 0.5 0;
   label-offset: 0 5;
-  -gt-label-max-displacement: 600;
-  -gt-label-repeat: 600;
 }
 
-[@scale > 200001] {
+[@scale > 400001] {
   stroke-opacity: 0;
 }
 
-[@scale < 200001] [@scale > 100001] {
-  stroke-width: 0.1;
-  stroke-opacity: 0.3;
-  font-size: 8.5;
-  label: [name];
-  label-geometry: [centroid(geom)];
+[@scale < 400000] [@scale > 200001] {
+  stroke-width: 1;
+  font-size: 8;
+  label: [uppername];
+  label-geometry: [centroid(geom)]; 
 }
 
-[@scale < 100001] [@scale > 20001] {
-  stroke-width: 0.1;
-  stroke-opacity: 0.3;
+[@scale < 200000] [@scale > 100001] {
+  stroke-width: 1.5;
   font-size: 10;
-  label: [name];
-  label-geometry: [centroid(geom)];
+  label: [uppername];
+  label-geometry: [centroid(geom)]; 
 }
 
-[@scale < 20001] {
-  /*font-size: 10;
-  label: [name];*/
-  stroke-opacity: 0;
+[@scale < 100000] [@scale > 50001] {
+  stroke-width: 2;
+  font-size: 10;
+  label: [uppername];
+  label-geometry: [centroid(geom)]; 
+}
+
+
+[@scale < 50000] {
+  stroke-width: 4;
 }
