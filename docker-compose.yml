@@ -5,7 +5,6 @@ services:
       context: ./docker/db
       dockerfile: Dockerfile
       args:
-        POSTGRES_VERSION: ${POSTGRES_VERSION}
         POSTGIS_VERSION: ${POSTGIS_VERSION}
         TIMEZONE: ${TIMEZONE}
     image: osmgwc-db
